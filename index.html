@@ -322,105 +322,37 @@
 
     </main>
 
-        <script>
-            document.getElementById('a2').addEventListener('click', function (e) {
-            e.preventDefault();
+    <script>
+function enviarWhatsapp() {
+    const linkProduto = window.location.href;
 
-            const linkProduto = window.location.href;
+    const mensagem = `
+[❗Mensagem Teste - Não Responda❗]
+👋 Olá! Acessei o site da *S.A Móveis* e me interessei em conhecer melhor os produtos e condições de compra. 🤩
 
-            const mensagem = `
-            [❗Mensagem Teste - Não Responda❗]
-👋 Olá! Acessei a página inicial do site da *S.A Móveis* e me interessei em conhecer melhor os produtos e condições de compra.🤩
+🔗 ${linkProduto}
+    `.trim();
 
-🔗 https://caioneis.github.io/SA---Projeto/index.html
+    const url = `https://api.whatsapp.com/send?phone=5586981373829&text=${encodeURIComponent(mensagem)}`;
 
-            `.trim();
+    window.open(url, '_blank');
+}
 
-            const url = `https://api.whatsapp.com/send?phone=5586981373829&text=${encodeURIComponent(mensagem)}`;
+document.getElementById('a2')?.addEventListener('click', function(e){
+    e.preventDefault();
+    enviarWhatsapp();
+});
 
-            window.open(url, '_blank');
-            });
-        </script>
+document.getElementById('a3')?.addEventListener('click', function(e){
+    e.preventDefault();
+    enviarWhatsapp();
+});
 
-        <script>
-            document.getElementById('a3').addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const linkProduto = window.location.href;
-
-            const mensagem = `
-            [❗Mensagem Teste - Não Responda❗]
-👋 Olá! Acessei a página inicial do *Site da S.A Móveis* e me interessei em conhecer melhor os produtos e condições de compra.🤩
-
-🔗 https://caioneis.github.io/SA---Projeto/index.html
-
-            `.trim();
-
-            const url = `https://api.whatsapp.com/send?phone=5586981373829&text=${encodeURIComponent(mensagem)}`;
-
-            window.open(url, '_blank');
-            });
-        </script>
-
-        <script>
-            document.getElementById('lwtp').addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const linkProduto = window.location.href;
-
-            const mensagem = `
-            [❗Mensagem Teste - Não Responda❗]
-👋 Olá! Acessei a página inicial do *Site da S.A Móveis* e me interessei em conhecer melhor os produtos e condições de compra.🤩
-
-🔗 https://caioneis.github.io/SA---Projeto/index.html
-
-            `.trim();
-
-            const url = `https://api.whatsapp.com/send?phone=5586981373829&text=${encodeURIComponent(mensagem)}`;
-
-            window.open(url, '_blank');
-            });
-        </script>
-
-        
-
-        <script>
-            function scrollSuave(target, duration = 1000) {
-            const targetPosition = target.getBoundingClientRect().top;
-            const startPosition = window.pageYOffset;
-            let startTime = null;
-
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const timeElapsed = currentTime - startTime;
-
-                const ease = easeInOutCubic(timeElapsed, startPosition, targetPosition, duration);
-                window.scrollTo(0, ease);
-
-                if (timeElapsed < duration) requestAnimationFrame(animation);
-            }
-
-            function easeInOutCubic(t, b, c, d) {
-                t /= d / 2;
-                if (t < 1) return c / 2 * t * t * t + b;
-                t -= 2;
-                return c / 2 * (t * t * t + 2) + b;
-            }
-
-            requestAnimationFrame(animation);
-            }
-
-            document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function (e) {
-                const alvo = document.querySelector(this.getAttribute('href'));
-                if (!alvo) return;
-
-                e.preventDefault();
-                scrollSuave(alvo, 1100); 
-                });
-            });
-        </script>
-
+document.getElementById('lwtp')?.addEventListener('click', function(e){
+    e.preventDefault();
+    enviarWhatsapp();
+});
+</script>
 
     <footer>
         <abbr title="">
